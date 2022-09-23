@@ -105,8 +105,5 @@ Message: ${message}`
                 </Row>
             </Container>
         </section>
-
-
-    
     );
 }
