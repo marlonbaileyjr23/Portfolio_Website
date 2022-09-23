@@ -67,9 +67,9 @@ Message: ${message}`
                     </Col>
                     <Col size={12} className="px-1">
                       <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
-                      <input type="button" onclick="window.open('mailto:your@email.address?subject=Comments about the color blue');" value="Contact us" />
+                      <a href= {`mailto:marlonbbusiness@gmail.com?subject=Portfolio Website Request&body= ${EmailBody}`}>{buttontext}</a>
                     </Col>
-                    {//marlonbbusiness@gmail.com?subject=Portfolio Website Request&body= ${EmailBody}
+                    {
                       status.message &&
                       <Col>
                         <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
