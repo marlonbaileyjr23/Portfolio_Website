@@ -4,7 +4,6 @@ import { Row,Container,Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { ArrowRightCircle } from 'react-bootstrap-icons';
 
 
 export const Banner = () => {
