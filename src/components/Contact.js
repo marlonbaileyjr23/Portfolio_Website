@@ -25,36 +25,12 @@ export const Contact = () => {
         })
     }
 
-  const name = formDetails.firstName + formDetails.lastName;
-const email = formDetails.email;
-const message = formDetails.message;
-const phone = formDetails.phone;
-const EmailBody = 
-`Name: ${name}\n  
-Email: ${email}\n  
-Phone: ${phone}\n  
-Message: ${message}`
-
-
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setButtonText("Sending...");
-      let response = await fetch("http://localhost:5000/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(formDetails),
-      });
-      setButtonText("Send");
-      let result = await response.json();
-      setFormDetails(formInitialDetails);
-      if (result.code == 200) {
-        setStatus({ succes: true, message: 'Message sent successfully'});
-      } else {
-        setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
-      }
-    };
+    const EmailBody = `
+    Name: ${formDetails.firstName} ${formDetails.lastName}
+    Email: ${formDetails.email}
+    Phone: ${formDetails.phone}
+    Message: ${formDetails.message}
+    `
 
 
     return(
@@ -73,7 +49,7 @@ Message: ${message}`
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>Get In Touch</h2>
-                <form onSubmit={handleSubmit}>
+                <form>
                   <Row>
                     <Col size={12} sm={6} className="px-1">
                       <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
@@ -89,7 +65,7 @@ Message: ${message}`
                     </Col>
                     <Col size={12} className="px-1">
                       <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
-                      <a href={`mailto:marlonbbusiness@gmail.com?subject=Portfolio Website Request&body=${EmailBody}`} type="submit"><span>{buttontext}</span></a>
+                    <a href={`mailto:marlonbbusiness@gmail.com?subject=Portfolio Website Request&body=${EmailBody}`} type="submit">Send Message</a>
                     </Col>
                     {
                       status.message &&

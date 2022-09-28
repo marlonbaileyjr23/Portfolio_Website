@@ -1,9 +1,8 @@
 import React, { Component }  from 'react';
 import { Container, Row, Col, Nav, Tab } from 'react-bootstrap';
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
+import movieLandimg from "../assets/img/project-img1.png";
 import {ProjectCard} from "./ProjectCard";
+import comingsoon from "../assets/img/comingsoon.png";
 
 
 
@@ -11,34 +10,9 @@ import {ProjectCard} from "./ProjectCard";
 export const Projects = () => {
     const projects1 = [
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg1,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg2,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg3,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg1,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg2,
-          },
-          {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg3,
+            title: "Movie Land",
+            description: "API, Design, Development",
+            imgUrl: movieLandimg,
           },
         ];
 
@@ -48,7 +22,7 @@ export const Projects = () => {
                 <Row>
                     <Col>
                         <h2>Projects</h2>
-                        <p>Lorem Ipsum</p>
+                        <p>My Current Projects</p>
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                             <Nav.Item>
@@ -75,8 +49,16 @@ export const Projects = () => {
                                     }
                                 </Row>
                             </Tab.Pane>
-                            <Tab.Pane eventKey="second">Lorem Ipsum</Tab.Pane>
-                            <Tab.Pane eventKey="third">Lorem Ipsum</Tab.Pane>
+                            <Tab.Pane eventKey="second">        
+                                <Row>
+                                    <h1>Coming Soon</h1>
+                                </Row>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="third">
+                                <Row>
+                                    <h1>Coming Soon</h1>
+                                </Row>
+                            </Tab.Pane>
                         </Tab.Content>
                         </Tab.Container>
                     </Col>

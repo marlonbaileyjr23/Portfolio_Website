@@ -1,7 +1,10 @@
 import {useState, useEffect} from 'react';
 import React, { Component }  from 'react';
 import { Row,Container,Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.png"
+import headerImg from "../assets/img/header-img.png";
+import 'animate.css';
+import TrackVisibility from 'react-on-screen';
+import { ArrowRightCircle } from 'react-bootstrap-icons';
 
 
 export const Banner = () => {
@@ -11,6 +14,7 @@ export const Banner = () => {
     const [text, setText] = useState('');
     const [delta, setDelta]=useState(300-Math.random()*100);
     const period = 1000;
+    const [index, setIndex] = useState(1);
 
     useEffect(() => {
         let ticker = setInterval(() => {
@@ -36,7 +40,9 @@ export const Banner = () => {
             setIsDeleting(false);
             setLoopNum(loopNum+1);
             setDelta(500);
-        }
+        } else {
+            setIndex(prevIndex => prevIndex + 1);
+          }
     }
 
 
@@ -47,15 +53,22 @@ export const Banner = () => {
                 <Container className='words-logo'>
                     <Row className="align-items-center">
                         <Col xs={12} md={6} xl={7}>
-                            <span className='tagline'>Welcome to my Portfolio Website</span>
-                            <h1>
-                                {"Hi I'm a \n"}
-                                <span className='wrap'>{text}</span> 
-                            </h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <TrackVisibility>
+              {({ isVisible }) =>
+              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                <span className="tagline">Welcome to my Portfolio</span>
+                <h1>{`Hi! I'm Judy`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
+                  <p>My name is Marlon Bailey Jr. I am a self taught web developer who is constantly adding new skils to my repertoire. You can contact me for further information using the form below. A full view of my projects are also listed.</p>
+              </div>}
+            </TrackVisibility>
                         </Col>
                         <Col xs={12} md={6} xl={5}>
-                            <img src={headerImg} alt="Header Image" />
+                        <TrackVisibility>
+              {({ isVisible }) =>
+                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                  <img src={headerImg} alt="Header Img"/>
+                </div>}
+            </TrackVisibility>
                         </Col>
                     </Row>
                 </Container>

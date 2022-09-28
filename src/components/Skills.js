@@ -40,7 +40,8 @@ export const Skills = () => {
                 <div className="col-12">
                     <div className="skill-bx">
                         <h2>Skills</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <p className='text1'>Front-end and Back-end Development Skills</p> 
+                          <p className='text2'>Including Frameworks and Libraries</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
                                 <img src={javascript} alt="Image" />
