@@ -6,9 +6,17 @@ import LinkedIn from '../assets/img/nav-icon1.png';
 import Github from '../assets/img/nav-icon2.png';
 import Email from '../assets/img/email.png';
 import Resume from '../assets/font/Resume_pdf.pdf';
+import { saveAs } from "file-saver";
 import {
   BrowserRouter as Router
 } from "react-router-dom";
+
+const saveFile = () => {
+  saveAs(
+    Resume,
+    "MarlonBaileyJr_Resume."
+  );
+};
 
 export const NavBar = () => {
 
@@ -56,9 +64,8 @@ export const NavBar = () => {
                 <a href="https://github.com/Sweatlys" target="_blank" rel="noreferrer"><img src={Github} alt="" /></a>
                 <a href="mailto:marlonbbusiness@gmail.com?subject=Portfolio Website Request"><img src={Email} alt="" /></a>
               </div>
-                <a href={Resume} download="MarlonBaileyJr_Resume" >
-                <button className='vvd'><span>Download My Resume</span></button>
-                </a>
+                <button className='vvd' onClick={saveFile}><span>Download My Resume</span></button>
+                
             </span>
           </Navbar.Collapse>
         </Container>
