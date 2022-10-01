@@ -11,12 +11,20 @@ import {
   BrowserRouter as Router
 } from "react-router-dom";
 
-const saveFile = () => {
-  saveAs(
-    Resume,
-    "MarlonBaileyJr_Resume."
-  );
-};
+const onButtonClick = () => {
+  // using Java Script method to get PDF file
+  fetch({Resume}).then(response => {
+      response.blob().then(blob => {
+          // Creating new object of PDF file
+          const fileURL = window.URL.createObjectURL(blob);
+          // Setting various property values
+          let alink = document.createElement('a');
+          alink.href = Resume;
+          alink.download = 'Marlon_BaileyJr_Resume.pdf';
+          alink.click();
+      })
+  })
+}
 
 export const NavBar = () => {
 
@@ -64,7 +72,7 @@ export const NavBar = () => {
                 <a href="https://github.com/Sweatlys" target="_blank" rel="noreferrer"><img src={Github} alt="" /></a>
                 <a href="mailto:marlonbbusiness@gmail.com?subject=Portfolio Website Request"><img src={Email} alt="" /></a>
               </div>
-                <button className='vvd' onClick={saveFile}><span>Download My Resume</span></button>
+                <button className='vvd' onClick={onButtonClick}><span>Download My Resume</span></button>
                 
             </span>
           </Navbar.Collapse>
