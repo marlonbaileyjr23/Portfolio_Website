@@ -72,7 +72,7 @@ export const NavBar = () => {
                 <a href="https://github.com/Sweatlys" target="_blank" rel="noreferrer"><img src={Github} alt="" /></a>
                 <a href="mailto:marlonbbusiness@gmail.com?subject=Portfolio Website Request"><img src={Email} alt="" /></a>
               </div>
-                <button className='vvd' onClick={onButtonClick}><span>Download My Resume</span></button>
+                <button className='vvd' onClick={onButtonClick} target="_BLANK"><span>Download My Resume</span></button>
                 
             </span>
           </Navbar.Collapse>
